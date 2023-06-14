@@ -35,13 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/users', UserController::class);
-    Route::resource('/buku', BukuController::class);
+    
     Route::get('/latihan_soal', [LatihansoalController::class, 'index']);
     Route::post('/hapusgambar', [PostController::class, 'hapusGambar']);
     Route::post('/req_soal', [LatihansoalController::class, 'latsol']);
     Route::resource('/pegawai', PegawaiController::class);
     Route::resource('/surats', SuratController::class);
-
+Route::resource('/buku_buku', BukuController::class);
 Route::resource('/artikel', PostController::class);
 
 
@@ -53,9 +53,7 @@ Route::get('/about', function(){return view('about');});
 
 Route::get('/perpustakaan', [BukuController::class, 'tampilan_user']);
 
-Route::get('/list_surat', function () {
-    return view('tampilan_user.surat');
-});
+Route::get('/list_surat', [SuratController::class, 'tampilan_user']);
 
 Route::get('/list_pegawai', [PegawaiController::class, 'tampilan_user']);
 

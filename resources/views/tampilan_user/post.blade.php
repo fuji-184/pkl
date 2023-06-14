@@ -4,7 +4,7 @@
 
 </div>
  <div id="pagination">
-                  <ul class="pagination-post">
+                  <ul class="pagination-list">
                     <li>
                       <button onclick="pertama()" id="pertama">Pertama</button>
                       <button onclick="sebelumnya()" id="sebelumnya">Sebelumnya</button>
@@ -33,13 +33,9 @@
 			container.innerHTML = `
           
             <img src="${data[i].gambar}" alt="" class="gambar-post rounded">
+            <div class="post-detail">
             <h3 class="judul-post">${data[i].judul}</h3>
-           
-
-            
-            <button class="tombol-baca rounded">
-              Baca
-            </button>
+          </div>
  			`;
  			
 			artikel.appendChild(container);

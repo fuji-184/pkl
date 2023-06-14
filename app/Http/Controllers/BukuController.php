@@ -65,7 +65,7 @@ class BukuController extends Controller
             'linkBuku' => $linkBuku
         ]);
         
-        return redirect()->route('buku');
+        return redirect()->route('buku_buku.index');
         
         }
         
@@ -141,7 +141,7 @@ class BukuController extends Controller
         
         }
         
-        return redirect()->route('buku');
+        return redirect()->route('buku_buku.index');
         
     }
 
@@ -150,13 +150,14 @@ class BukuController extends Controller
      */
     public function destroy(Request $request, string $id)
     {
+      dd($request->linkGambar);
         $data = Buku::findOrFail($id);
         $data->delete();
         
         File::delete(public_path('buku/sampul/' . basename($request->linkGambar)));
         File::delete(public_path('buku/file/' . basename($request->linkBuku)));
         
-        return redirect()->route('buku');
+        return redirect()->route('buku_buku.index');
     }
 
     public function tampilan_user()

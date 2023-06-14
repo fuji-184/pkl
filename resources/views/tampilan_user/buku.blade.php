@@ -33,10 +33,10 @@
         <td><h3 class="trick__title">${e.judul}</h3></td>
         </tr>
         <tr>
-        <td><button>Baca</button></td>
+        <td><button class="tombol2">Baca</button></td>
         </tr>
         <tr>
-        <td><button>Download</button></td>
+        <td><a href="${e.linkBuku}" download><button class="tombol2">Download</button></a></td>
         </tr>
         </table>
       
@@ -87,10 +87,10 @@ function filterData(kataKunci) {
         <td><h3 class="trick__title">${e.judul}</h3></td>
         </tr>
         <tr>
-        <td><button>Baca</button></td>
+        <td><button class="tombol2">Baca</button></td>
         </tr>
         <tr>
-        <td><button>Download</button></td>
+        <td><button class="tombol2">Download</button></td>
         </tr>
         </table>     
       `;

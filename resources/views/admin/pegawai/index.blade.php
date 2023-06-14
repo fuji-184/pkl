@@ -52,6 +52,7 @@
             <th>Jabatan</th>
             <th>Tanggal Lahir</th>
             <th>Alamat</th>
+            <th>No HP</th>
             <th>Aksi</th>
           </thead>
           <tbody id="data">
@@ -99,6 +100,7 @@
               <td>${data[i].jabatan}</td>
               <td>${data[i].tanggal_lahir}</td>
               <td>${data[i].alamat}</td>
+              <td>${data[i].no_hp}</td>
               <td class="aksi">
                 <i class="fa-solid fa-eye"></i>
                 <i class="fa-solid fa-pen-to-square" onclick="edit(this)" data-id="${data[i].id}" data-no="${i}"></i>
@@ -273,7 +275,7 @@ function filterData(kataKunci) {
             <form action="{{ route('pegawai.store') }}" method="POST"  enctype="multipart/form-data">
               @csrf
               @method('POST')
-              <label>Nama Beserta Gelae</label>
+              <label>Nama Beserta Gelar</label>
               <input type="text" name="name" class="rounded" required>
               <label>NIP</label</label>
               <input type="number" class="rounded" name="nip" required/>
@@ -289,12 +291,12 @@ function filterData(kataKunci) {
               <input type="date" name="tanggal_lahir" class="rounded" required>
             
               <label>Alamat</label</label>
-              <input type="text" class="rounded" name="alamat" required/>
+              <input type="text" class="rounded" name="alamat" />
               <label>No HP</label</label>
               <input type="text" class="rounded" name="no_hp"/>
 
               <label>Foto</label>
-              <input type="file" class="rounded" name="foto" required/>
+              <input type="file" class="rounded" name="foto" />
               
               
               <div>
@@ -331,13 +333,13 @@ function filterData(kataKunci) {
               <input value="${data[no].tanggal_lahir}"tanggal_lahir type="date" name="tanggal_lahir" class="rounded" required>
             
               <label>Alamat</label>
-              <input value="${data[no].alamat}" type="text" class="rounded" name="alamat" required/>
+              <input value="${data[no].alamat}" type="text" class="rounded" name="alamat" />
               <label>No HP</label>
               <input value="${data[no].no_hp}" type="text" class="rounded" name="no_hp"/>
 
               <label>Foto</label>
               <img src="${data[no].foto}" class="gambar-crud"/>
-              <input value="${data[no].foto}" type="file" class="rounded" name="foto" required/>
+              <input value="${data[no].foto}" type="file" class="rounded" name="foto" />
               
               
               <div>

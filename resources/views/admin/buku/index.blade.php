@@ -12,11 +12,11 @@
     <div id="container-modal" class="container-modal">
     <div class="modal">
         <p>Apakah Anda Yakin Ingin Menghapus data ini?</p>
-        <form id="hapusForm" method="post" action="{{ route('buku.destroy', ':id') }}">
+        <form id="hapusForm" method="post" action="{{ route('buku_buku.destroy', ':id') }}">
             @csrf
             @method('DELETE')
-<input type="hidden" id="linkGambar" name"linkGambar">
-<input type="hidden" id="linkBuku" name"linkBuku">
+<input type="hidden" id="linkGambars" name="linkGambar">
+<input type="hidden" id="linkBukuu" name="linkBuku">
             <button type="submit">Iya</button>
         </form>
         <div class="batal">
@@ -97,15 +97,16 @@
             const baris = document.createElement('tr');
             baris.innerHTML = `
               <td>${i+1}</td>
+              
               <td>
-                <img class="gambar-crud" src="${data[i].linkGambar}"/>
+               <img class="gambar-crud" src="${data[i].linkGambar ? data[i].linkGambar : ''}"/> 
               </td>
               <td>${data[i].judul}</td>
               <td>${data[i].linkBuku}</td>
               <td class="aksi">
                 <i class="fa-solid fa-eye"></i>
                 <i class="fa-solid fa-pen-to-square" onclick="edit(this)" data-id="${data[i].id}" data-no="${i}"></i>
-                <i class="fa-solid fa-trash" onclick="hapus(this)" data-id="${data[i].id}"></i>
+                <i class="fa-solid fa-trash" onclick="hapus(this)" data-id="${data[i].id}" data-no="${i}"></i>
               </td>
             `;
             
@@ -223,10 +224,10 @@ function filterData(kataKunci) {
 
   if(hasilPencarian.length > 0){
   
-  hasilPencarian.forEach((e, index) => {
+  hasilPencarian.forEach((e, i) => {
     const baris = document.createElement('tr');
     baris.innerHTML = `
-      <td>${index+1}</td>
+      <td>${i+1}</td>
       <td>
         <img src="${e.linkGambar}" />
       </td>
@@ -234,9 +235,9 @@ function filterData(kataKunci) {
       <td>${e.linkBuku}</td>
       <td class="aksi">
                 <i class="fa-solid fa-eye"></i>
-                <i class="fa-solid fa-pen-to-square" onclick="edit(this)"></i>
-                <i class="fa-solid fa-trash" onclick="hapus(this)" data-id="${index}"></i>
-      </td>
+                <i class="fa-solid fa-pen-to-square" onclick="edit(this)" data-id="${e.id}" data-no="${i}"></i>
+                <i class="fa-solid fa-trash" onclick="hapus(this)" data-id="${e.id}" data-no="${i}"></i>
+              </td>
     `;
     dataUserContainer.appendChild(baris);
   });
@@ -259,7 +260,7 @@ function filterData(kataKunci) {
       function tambah(){
         const formTambah = `
           <div>
-            <form action="{{ route('buku.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('buku_buku.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('POST')
               <label>Judul</label>
@@ -282,7 +283,7 @@ function filterData(kataKunci) {
         const no = baris.dataset.no;
         const formEdit = `
           <div>
-            <form action="/buku/${id}" method="POST" enctype="multipart/form-data">
+            <form action="/buku_buku/${id}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <input type="hidden" name="linkGambar" value="${data[no].linkGambar}">
@@ -310,10 +311,11 @@ function filterData(kataKunci) {
       };
  function hapus(data) {
     const modal = document.getElementById('container-modal');
+    
     const id = data.dataset.id;
     const no = data.dataset.no;
-    document.getElementById('linkGambar').value = data[no].linkGambar;
-    document.getElementById('linkBuku').value = data[no].linkBuku;
+  document.getElementById('linkGambars').value = data[no].linkGambar;
+  document.getElementById('linkBukuu').value = data[no].linkBuku;
     modal.style.display = 'flex';
 
     const form = document.getElementById('hapusForm');

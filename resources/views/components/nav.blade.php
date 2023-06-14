@@ -24,13 +24,19 @@
                     <span>Users</span>
                 </li>
               </a>
+              <a href="/pegawai">
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <span>Pegawai</span>
+                </li>
+              </a>
               <a href="/surats">
                 <li>
                     <i class="fa-solid fa-box"></i>
                     <span>Surat</span>
                 </li>
               </a>
-              <a href="/buku">
+              <a href="/buku_buku">
                 <li>
                     <i class="fa-solid fa-box"></i>
                     <span>Buku</span>
@@ -42,15 +48,7 @@
                     <span>Artikel</span>
                 </li>
               </a>
-                <li>
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <span>Charts</span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-phone"></i>
-                    <span>Support</span>
-                </li>
-
+                
                 <hr class="line">
                 
                 <li>

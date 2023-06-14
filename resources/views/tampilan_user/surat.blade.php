@@ -17,18 +17,7 @@
   </section>
   
   <script>
-    let data = [
-    	{
-    	nama_surat: 'Surat 1',
-    	link_surat: 'google.com',
-    	keterangan: 'Surat Pendaftaran Siswa Baru'
-        },
-        {
-    	nama_surat: 'Surat 2',
-    	link_surat: 'google.com',
-    	keterangan: 'Surat Pendaftaran Ekstrakurikuler'
-        }
-    ]
+    let data = JSON.parse('<?php echo str_replace("'", "\'", $json); ?>');
     const pegawai = document.getElementById('pegawai');
     function listPegawai(){
     pegawai.innerHTML = '';
@@ -37,7 +26,7 @@
       div.className = 'pegawai-card';
       div.innerHTML = `
       
-        <button class="img-pegawai">Download</button>
+        <a href="${e.linkSurat}" download><button class="img-pegawai">Download</button></a>
 
         <table class="pegawai-detail">
         <tr>

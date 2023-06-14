@@ -1,0 +1,5 @@
+@media screen and (max-width: 767px) {
+  #artikel {
+    grid-template-columns: auto auto auto;
+  }
+}

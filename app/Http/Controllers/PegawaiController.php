@@ -36,9 +36,20 @@ class PegawaiController extends Controller
         $request->file('foto')->move(public_path('media'), $gambar);
         
         $linkGambar = asset('media/' . $gambar);
-        
+        Pegawai::create([
+           
+            'nama_beserta_gelar' => $request->name,
+            'nip' => $request->nip,
+            'jabatan' => $request->jabatan,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat ?? '',
+            'no_hp' => $request->no_hp ?? '',
+            'foto' => $linkGambar
+
+            
+        ]);
           
-        }
+        } else {
         
        Pegawai::create([
            
@@ -46,12 +57,11 @@ class PegawaiController extends Controller
             'nip' => $request->nip,
             'jabatan' => $request->jabatan,
             'tanggal_lahir' => $request->tanggal_lahir,
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
-            'foto' => $linkGambar
-
-            
+            'alamat' => $request->alamat ?? '',
+            'no_hp' => $request->no_hp ?? '',
+            'foto' => ''
         ]);
+        }
         
        return redirect()->route('pegawai.index');
         

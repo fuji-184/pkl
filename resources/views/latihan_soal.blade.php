@@ -17,7 +17,9 @@
     .isi-chat .pesan:not(:last-child) {
       margin-bottom: 20px;
     }
-
+.isi-chat {
+  padding-bottom: 400px;
+}
     .loading-container {
       display: flex;
       justify-content: center;

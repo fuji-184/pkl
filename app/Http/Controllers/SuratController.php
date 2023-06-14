@@ -134,6 +134,13 @@ return redirect()->route('surats.index');
         return view('tampilan_user.surat', compact('json'));
     }
     
+    public function tampilan_user()
+    {
+        $json = Surat::all();
+        $json = json_encode($json, JSON_HEX_QUOT);
+        return view('tampilan_user.surat', compact('json'));
+    }
+    
     /*
     public function upload(Request $request)
 {

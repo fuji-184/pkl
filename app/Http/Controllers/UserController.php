@@ -101,6 +101,11 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $data = User::findOrFail($id);
+        
+        if ($data->isAdmin()) {
+            return redirect()->route('users.index')->with('error', 'Tidak dapat menghapus akun admin.');
+        }
+        
         $data->delete();
 
         return redirect()->route('users.index');

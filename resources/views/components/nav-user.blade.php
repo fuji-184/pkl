@@ -21,12 +21,13 @@
         <li class="nav__item">
           <a href="/perpustakaan" class="nav__link">Perpustakaan</a>
         </li>
+                <a href="/login" class="button button--ghost">Login</a>
         <a href="/latihan_soal" class="button button--ghost">Latihan Soal</a>
       </ul>
       <div class="nav__close" id="nav-close">
         <i class='bx bx-x'></i>
       </div>
-      <img src="https://assets.codepen.io/7773162/nav-img.png" alt="" class="nav__img">
+     
     </div>
     <div class="nav__toggle" id="nav-toggle">
       <i class='bx bx-grid-alt'></i>

@@ -16,26 +16,69 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
 
-      
+      <link rel="stylesheet" href="./responsif.css" />
         
         
       <style>
+      @media screen and (max-width: 767px) {
+  #artikel {
+    grid-template-columns: auto;
+    margin: 0;
+  }
+  #pegawai{
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #artikel {
+    grid-template-columns: auto auto auto;
+    margin: 0 60px 0 60px;
+  }
+  #pegawai {
+    grid-template-columns: auto auto;
+  }
+}
+
+      
+      
+      .cari-pegawai input {
+        background: black;
+        color: white;
+      }
+      
+      #pagination {
+        margin-top: 60px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      }
+        
+        .tombol2 {
+          padding: 7px;
+          background: black;
+          border-radius: 12px;
+          color: white;
+        }
+        
         .banner {
           background: blue;
         }
         
         .card-post {
-          background: #ffffff;
+          background: black;
+          color: white;
           width: 200px;
           border-radius: 12px;
         }
         .judul-post {
-          font-size: 25px;
+          font-size: 21px;
           font-weight: 700;
-          margin-top: 20px;
-          color: #000000;
-          margin: 20px 0 0 20px;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
+        
+        .post-detail{
+          padding: 20px;
+        }
+        
         .tombol-baca {
           padding: 8px;
           margin: 20px 0 20px 20px;
@@ -44,15 +87,18 @@
         .gambar-post {
           width: 100%;
           height: 100px;
-          border-radius: 12px;
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+          filter: brightness(7,0%);
         }
         #artikel {
-          margin: 0 60px 0 60px;
+          
           display: grid;
-          grid-template-columns: auto auto auto;
+          
           gap: 30px;
           place-items: center;
         }
+        
         /*
 #pegawai {
   width: 100%;
@@ -64,7 +110,7 @@
 */
 #pegawai {
   display: grid;
-  grid-template-columns: auto auto;
+  
   grid-gap: 50px;
 }
 .pegawai-section {
